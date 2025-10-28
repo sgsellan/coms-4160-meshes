@@ -1,3 +1,4 @@
 [submodule "libigl"]
 	path = libigl
 	url = https://github.com/sgsellan/libigl.git
+	branch = coms-4160-assignment-libigl
