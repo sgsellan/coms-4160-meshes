@@ -251,6 +251,8 @@ normals.
 
 Construct a quad mesh of a sphere with `num_faces_u` × `num_faces_v` faces.
 
+At this stage, you should be able to run `./obj` and see first a cube (with texture), and then (after closing the viewer window) a sphere with a texture.
+
 ### `src/triangle_area_normal.cpp`
 Compute the normal vector of a 3D triangle given its corner locations. The
 output vector should have length equal to the area of the triangle.
@@ -270,9 +272,13 @@ Compute per corner normals for a triangle mesh by computing the area-weighted
 average of normals at incident faces whose normals deviate less than the
 provided threshold.
 
+At this stage, you should be able to run `./normals ../data/fandisk.obj` and cycle (using 1, 2 and 3) through the three types of normals (you may want to press `L` to hide the mesh wireframe to aid in visualization).
+
 ### `src/catmull_clark.cpp`
 
 Conduct `num_iters` iterations of [Catmull-Clark
 subdivision](https://en.wikipedia.org/wiki/Catmull–Clark_subdivision_surface) on
 a **pure quad** mesh (`V`,`F`).
+
+At this stage, you should be able to run `./quad-subdivision` and see the shape get subdivided by progressively pressing the spacebar (press `R` to return to the original mesh).
 
