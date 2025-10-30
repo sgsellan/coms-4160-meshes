@@ -94,11 +94,6 @@ assignment, we'll compute area-weighted per-vertex normals:
 
 where <img src="/tex/f947b3c602ca948910b99f1601e5abed.svg?invert_in_darkmode&sanitize=true" align=middle width=36.34324319999999pt height=24.65753399999998pt/> is the set of faces neighboring the <img src="/tex/6c4adbc36120d62b98deef2a20d5d303.svg?invert_in_darkmode&sanitize=true" align=middle width=8.55786029999999pt height=14.15524440000002pt/>-th vertex.
 
-[per-vertex-normal]: images/per-vertex-normal.png height=300px
-![Unique triangle normals (orange) are well-defined. We can define a notion of a
-normal for each vertex (purple) by taking a (weighted) average of normals from
-incident triangles.][per-vertex-normal]
-
 For surfaces with a mixture of smooth-looking parts and creases, it is useful to
 define normals independently for each triangle corner (as opposed to each mesh
 vertex). For each corner, we'll again compute an area-weighted average of normals 
@@ -251,6 +246,8 @@ normals.
 
 Construct a quad mesh of a sphere with `num_faces_u` × `num_faces_v` faces.
 
+At this stage, you should be able to run `./obj` and see first a cube (with texture), and then (after closing the viewer window) a sphere with a texture.
+
 ### `src/triangle_area_normal.cpp`
 Compute the normal vector of a 3D triangle given its corner locations. The
 output vector should have length equal to the area of the triangle.
@@ -270,9 +267,13 @@ Compute per corner normals for a triangle mesh by computing the area-weighted
 average of normals at incident faces whose normals deviate less than the
 provided threshold.
 
+At this stage, you should be able to run `./normals ../data/fandisk.obj` and cycle (using 1, 2 and 3) through the three types of normals (you may want to press `L` to hide the mesh wireframe to aid in visualization).
+
 ### `src/catmull_clark.cpp`
 
 Conduct `num_iters` iterations of [Catmull-Clark
 subdivision](https://en.wikipedia.org/wiki/Catmull–Clark_subdivision_surface) on
 a **pure quad** mesh (`V`,`F`).
+
+At this stage, you should be able to run `./quad-subdivision` and see the shape get subdivided by progressively pressing the spacebar (press `R` to return to the original mesh).
 
